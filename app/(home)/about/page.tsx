@@ -1,4 +1,5 @@
-import React from 'react'
+'use client'
+import React, { useState } from 'react'
 import bg_two_mobile from "@/assets/about-bg-two-mobile.png";
 import bg_one from "@/assets/about-bg1.png";
 import bg_two from "@/assets/about_bg2.png";
@@ -16,6 +17,14 @@ import logo6 from "@/assets/aboutLogos/Group 1000006673.png"
 import QuoteContainer from '@/source/components/Quote';
 
 const About = () => {
+  const [isOpen, setIsOpen] = useState(false);
+  const [isOpen2, setIsOpen2] = useState(false);
+  const toggleDropdown = () => {
+    setIsOpen(!isOpen);
+  };
+  const toggleDropdown2 = () => {
+    setIsOpen2(!isOpen2);
+  };
   return (
     <section className='min-h-fit bg-about-main-bg w-full bg-cover'>
       {/* Hero Section */}
@@ -136,7 +145,94 @@ const About = () => {
 
       {/* Quotes */}
       <QuoteContainer authorName='Om Swami' quote='Service is the highest form of spiritual practice, and sharing inner wisdom with humanity is my devotion.' authorNameClassName='text-[15px] md:text-[18px] font-bold' quoteClassName='text-[15px] md:text-[27px]' quotationsColor='#E1C7A0' />
+      {/* <div className="flex flex-col items-center justify-center mt-[176px] mb-[95px]">
+        <p className="text-center font-semibold text-[40px] text-[#FFD5A4] capitalize mb-[63px]">our other offerings</p>
+        <div className="flex items-center justify-center w-983 h-223 px-[228px]">
+          <div className="group flex gap-2 p-2 text-white items-center">
+            <Image
+              src="/AstroSadhana_App_1.png"
+              alt="picture"
+              width={106}
+              height={106}
+            />
+            <div className='flex flex-col'>
 
+              <div
+                className="flex cursor-pointer items-center gap-[1rem]"
+                onClick={toggleDropdown}
+              >
+                <span className='font-semibold text-[22.76px] whitespace-nowrap'>AstroSadhana App </span>
+                <img
+                  src="https://upload.wikimedia.org/wikipedia/commons/9/96/Chevron-icon-drop-down-menu-WHITE.png"
+                  className={`h-2 w-3 transition-all duration-500 ${isOpen ? 'rotate-180' : ''}`}
+                />
+              </div>
+              <div
+                className={`transition-all text-center max-w-[261px] text-[#FFD5A4] text-[17px] overflow-hidden items-center opacity-0 ${isOpen ? 'visible max-h-screen opacity-100 duration-1000' : 'max-h-0'}`}
+              >
+                The world’s first mindful meditation and kindness App
+                <div className="flex items-center justify-center">
+                  <div className="flex items-center space-x-4">
+                    <div className="w-[63px] h-1 bg-gradient-to-r from-transparent via-white to-white"></div>
+                    <div className="text-white font-light text-[17.43px] capitalize">get the app</div>
+                    <div className="w-[63px] h-1 bg-gradient-to-l from-white via-white to-transparent"></div>
+                  </div>
+                </div>
+                <div className='flex gap-[44px] justify-center'>
+                  <div className='w-[73px] h-[73px] border-2 flex items-center justify-center rounded-full'>
+                    <Image
+                      src="/Group1000006678.png"
+                      alt="picture"
+                      width={22}
+                      height={26.15}
+                    />
+                  </div>
+                  <div className='w-[73px] h-[73px] border-2 flex items-center justify-center rounded-full'>
+                    <Image
+                      src="/Group1000006679.png"
+                      alt="picture"
+                      width={22}
+                      height={26.15}
+                    />
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div className="group flex gap-2 p-2 text-white items-center">
+            <Image
+              src="/Black_Lotus_1.png"
+              alt="picture"
+              width={101}
+              height={63}
+            />
+            <div className='flex flex-col'>
+              <div
+                className="flex cursor-pointer items-center gap-[1rem]"
+                onClick={toggleDropdown2}
+              >
+                <span className='font-semibold text-[22.76px] whitespace-nowrap'>Black Lotus Meditation App </span>
+                <img
+                  src="https://upload.wikimedia.org/wikipedia/commons/9/96/Chevron-icon-drop-down-menu-WHITE.png"
+                  className={`h-2 w-3 transition-all duration-500 ${isOpen2 ? 'rotate-180' : ''}`}
+                />
+              </div>
+              <div
+                className={`transition-all text-center max-w-[261px] text-[#FFD5A4] text-[17px] overflow-hidden items-center opacity-0 ${isOpen2 ? 'visible max-h-screen opacity-100 duration-1000' : 'max-h-0'}`}
+              >
+                The world’s first mindful meditation and kindness App
+                <div className="flex items-center justify-center">
+                  <div className="flex items-center space-x-4">
+                    <div className="w-[63px] h-1 bg-gradient-to-r from-transparent via-white to-white"></div>
+                    <div className="text-white font-light text-[17.43px] capitalize">get the app</div>
+                    <div className="w-[63px] h-1 bg-gradient-to-l from-white via-white to-transparent"></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div> */}
       {/* OUR IMPACT */}
       <div style={{
         background: 'rgba(0, 24, 42, 0.55)'
@@ -144,10 +240,10 @@ const About = () => {
         <h1 className='text-accent-yellowPrimary pb-[51px] md:pb-[70px]'>Our Impact</h1>
         <div className='grid md:grid-cols-3 gap-[57px] w-full md:px-[138px] md:justify-between'>
           <div className='flex flex-col items-center gap-[25px]'>
-              <svg xmlns="http://www.w3.org/2000/svg" width="75" height="75" className='h-[50px] w-[50px] md:h-[75px] md:w-[75px]' viewBox="0 0 75 75" fill="none">
-                <path d="M0 57.7114C0.295312 56.5393 0.528261 55.3489 0.898777 54.2006C1.66916 51.8088 3.07602 49.8058 4.84239 48.0394C10.556 42.3276 16.2697 36.6158 21.9797 30.9022C25.4115 27.4685 29.5459 25.7975 34.3975 26.1166C38.2916 26.3716 41.6464 27.9362 44.3941 30.7206C45.5771 31.9202 45.5423 33.8113 44.3941 35.02C43.2678 36.2068 41.4263 36.3572 40.1625 35.2585C38.84 34.1084 37.4588 33.0886 35.7291 32.6685C32.2569 31.8266 29.1791 32.6153 26.6423 35.1282C20.7471 40.9685 14.8775 46.8343 9.03912 52.7333C6.4822 55.3177 5.64578 58.4781 6.65278 61.9595C7.64877 65.4078 10.0021 67.6456 13.522 68.4618C16.9502 69.2561 19.9327 68.2784 22.4181 65.8095C25.2593 62.9903 28.0767 60.1472 30.9142 57.3244C32.1047 56.1413 33.5299 55.9138 34.8395 56.6585C36.494 57.5995 36.9305 59.7584 35.7695 61.268C35.6649 61.4037 35.5585 61.5394 35.4393 61.6587C32.3248 64.7567 29.2488 67.8932 26.0792 70.9362C23.7442 73.1777 20.8865 74.4249 17.6747 74.8505C17.539 74.8688 17.4106 74.9459 17.2804 74.9954H14.0576C13.8723 74.944 13.6908 74.8762 13.5018 74.845C7.44334 73.849 3.25394 70.496 1.00149 64.797C0.517255 63.5681 0.326494 62.2254 0 60.9341C0 59.8593 0 58.7862 0 57.7114Z" fill="white" />
-                <path d="M38.8363 50.6845C35.72 50.6442 32.0607 49.1749 29.003 46.2346C27.6842 44.9672 27.6053 43.0761 28.7957 41.7756C29.9586 40.5027 31.8277 40.3944 33.1924 41.616C34.7185 42.9807 36.3913 43.9895 38.4475 44.2904C41.2575 44.7031 43.7594 44.0152 45.9513 42.2103C46.2522 41.9627 46.5346 41.6912 46.8098 41.4143C53.1104 35.1192 59.4036 28.8167 65.7097 22.5253C67.7494 20.4911 68.7803 18.0773 68.7032 15.1737C68.5932 11.0154 65.2127 7.10852 61.0948 6.43535C57.7712 5.89242 54.9281 6.82605 52.5528 9.19221C49.1484 12.5856 45.7551 15.9917 42.3526 19.3869C41.1053 20.6305 39.6452 20.8653 38.3099 20.0637C36.6994 19.0971 36.3014 16.9822 37.4478 15.491C37.5524 15.3553 37.6569 15.2195 37.778 15.1003C41.5143 11.3841 45.1718 7.58175 49.0108 3.97381C55.4967 -2.1232 66.4214 -1.04283 71.7481 6.10703C76.1411 12.0041 76.0824 19.5171 71.5775 25.3592C71.1171 25.9553 70.5852 26.5019 70.0514 27.0357C63.8095 33.2868 57.5639 39.5342 51.3147 45.7779C48.0369 49.052 44.2712 50.6717 38.8363 50.6808V50.6845Z" fill="white" />
-              </svg>
+            <svg xmlns="http://www.w3.org/2000/svg" width="75" height="75" className='h-[50px] w-[50px] md:h-[75px] md:w-[75px]' viewBox="0 0 75 75" fill="none">
+              <path d="M0 57.7114C0.295312 56.5393 0.528261 55.3489 0.898777 54.2006C1.66916 51.8088 3.07602 49.8058 4.84239 48.0394C10.556 42.3276 16.2697 36.6158 21.9797 30.9022C25.4115 27.4685 29.5459 25.7975 34.3975 26.1166C38.2916 26.3716 41.6464 27.9362 44.3941 30.7206C45.5771 31.9202 45.5423 33.8113 44.3941 35.02C43.2678 36.2068 41.4263 36.3572 40.1625 35.2585C38.84 34.1084 37.4588 33.0886 35.7291 32.6685C32.2569 31.8266 29.1791 32.6153 26.6423 35.1282C20.7471 40.9685 14.8775 46.8343 9.03912 52.7333C6.4822 55.3177 5.64578 58.4781 6.65278 61.9595C7.64877 65.4078 10.0021 67.6456 13.522 68.4618C16.9502 69.2561 19.9327 68.2784 22.4181 65.8095C25.2593 62.9903 28.0767 60.1472 30.9142 57.3244C32.1047 56.1413 33.5299 55.9138 34.8395 56.6585C36.494 57.5995 36.9305 59.7584 35.7695 61.268C35.6649 61.4037 35.5585 61.5394 35.4393 61.6587C32.3248 64.7567 29.2488 67.8932 26.0792 70.9362C23.7442 73.1777 20.8865 74.4249 17.6747 74.8505C17.539 74.8688 17.4106 74.9459 17.2804 74.9954H14.0576C13.8723 74.944 13.6908 74.8762 13.5018 74.845C7.44334 73.849 3.25394 70.496 1.00149 64.797C0.517255 63.5681 0.326494 62.2254 0 60.9341C0 59.8593 0 58.7862 0 57.7114Z" fill="white" />
+              <path d="M38.8363 50.6845C35.72 50.6442 32.0607 49.1749 29.003 46.2346C27.6842 44.9672 27.6053 43.0761 28.7957 41.7756C29.9586 40.5027 31.8277 40.3944 33.1924 41.616C34.7185 42.9807 36.3913 43.9895 38.4475 44.2904C41.2575 44.7031 43.7594 44.0152 45.9513 42.2103C46.2522 41.9627 46.5346 41.6912 46.8098 41.4143C53.1104 35.1192 59.4036 28.8167 65.7097 22.5253C67.7494 20.4911 68.7803 18.0773 68.7032 15.1737C68.5932 11.0154 65.2127 7.10852 61.0948 6.43535C57.7712 5.89242 54.9281 6.82605 52.5528 9.19221C49.1484 12.5856 45.7551 15.9917 42.3526 19.3869C41.1053 20.6305 39.6452 20.8653 38.3099 20.0637C36.6994 19.0971 36.3014 16.9822 37.4478 15.491C37.5524 15.3553 37.6569 15.2195 37.778 15.1003C41.5143 11.3841 45.1718 7.58175 49.0108 3.97381C55.4967 -2.1232 66.4214 -1.04283 71.7481 6.10703C76.1411 12.0041 76.0824 19.5171 71.5775 25.3592C71.1171 25.9553 70.5852 26.5019 70.0514 27.0357C63.8095 33.2868 57.5639 39.5342 51.3147 45.7779C48.0369 49.052 44.2712 50.6717 38.8363 50.6808V50.6845Z" fill="white" />
+            </svg>
             <p className='text-center text-[23px] font-normal capitalize text-white'>200k reconnected to<br />vedic roots</p>
           </div>
           <div className='flex flex-col items-center gap-[25px]'>
@@ -180,22 +276,22 @@ const About = () => {
         <h4 className='text-accent-yellowPrimary text-[33px] font-normal capitalize font-open-sans text-center'>Sadhana is been featured in</h4>
         <div className='grid grid-cols-2 md:grid-cols-6 items-center place-content-center justify-center pt-[90px] gap-x-7 gap-y-20 '>
           <div className='flex justify-center items-center'>
-            <Image src={logo1} alt='Logo' className='h-[28.332px] w-[108.017px] md:h-[32px] md:w-[122px]'/>
+            <Image src={logo1} alt='Logo' className='h-[28.332px] w-[108.017px] md:h-[32px] md:w-[122px]' />
           </div>
           <div className='flex justify-center items-center'>
-            <Image src={logo2} alt='Logo' className='h-[42.499px] w-[115.1px] md:h-[48px] md:w-[130px]'/>
+            <Image src={logo2} alt='Logo' className='h-[42.499px] w-[115.1px] md:h-[48px] md:w-[130px]' />
           </div>
           <div className='flex justify-center items-center'>
-            <Image src={logo3} alt='Logo' className='h-[52.238px] w-[108.903px] md:h-[59px] md:w-[123px]'/>
+            <Image src={logo3} alt='Logo' className='h-[52.238px] w-[108.903px] md:h-[59px] md:w-[123px]' />
           </div>
           <div className='flex justify-center items-center'>
-            <Image src={logo4} alt='Logo' className='h-[19.479px] w-[107.132px] md:h-[22px] md:w-[121px]'/>
+            <Image src={logo4} alt='Logo' className='h-[19.479px] w-[107.132px] md:h-[22px] md:w-[121px]' />
           </div>
           <div className='flex justify-center items-center'>
-            <Image src={logo5} alt='Logo' className='h-[15.052px] w-[143.433px] md:h-[17px] md:w-[162px]'/>
+            <Image src={logo5} alt='Logo' className='h-[15.052px] w-[143.433px] md:h-[17px] md:w-[162px]' />
           </div>
           <div className='flex justify-center items-center'>
-            <Image src={logo6} alt='Logo' className='h-[24.883px] w-[107px] md:h-[28.104px] md:w-[130px]'/>
+            <Image src={logo6} alt='Logo' className='h-[24.883px] w-[107px] md:h-[28.104px] md:w-[130px]' />
           </div>
         </div>
       </div>

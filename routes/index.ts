@@ -15,7 +15,7 @@ export const routes: Record<string, Route> = {
     name: "About",
   },
   product: {
-    path: "/product",
+    path: "/products",
     name: "Product",
   },
   contact: {
